@@ -6,6 +6,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/context/auth-context";
 import { SocketProvider } from "@/lib/socket-context";
 import { PresentationMode } from "@/components/presentation-mode";
+import Navbar from "@/components/loom/Navbar";
+import Footer from "@/components/loom/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +26,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <SocketProvider>
+          <Navbar />
             {children}
+            <Footer />
             <Toaster />
             <PresentationMode />
           </SocketProvider>
