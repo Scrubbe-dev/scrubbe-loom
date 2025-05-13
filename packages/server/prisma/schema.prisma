@@ -1,0 +1,384 @@
+generator client {
+  provider = "prisma-client-js"
+  // output = "../../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model User {
+  id             String         @id @default(uuid())
+  email          String         @unique
+  passwordHash   String
+  firstName      String?
+  lastName       String?
+  experience     String?
+  username       String?
+  isVerified     Boolean        @default(false)
+  isActive       Boolean        @default(true)
+  lastLogin      DateTime?
+  apiKeyDuration DateTime       @default(now())
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  passwordChangedAt DateTime?   // Added to track password changes
+  refreshToken   RefreshToken[]
+  resetTokens    ResetToken[]   // Relation to ResetToken
+  apiKey         String?        @default(cuid())
+  role           Role           @default(USER)
+
+  @@index([apiKey])
+  DetectionRule     DetectionRule[]
+  PlaybookExecution PlaybookExecution[]
+  IncidentComment   IncidentComment[]
+  Customer          Customer[]
+  Incident          Incident[]
+  ReportConfiguration ReportConfiguration[]
+  DataSourceIntegration DataSourceIntegration[]
+}
+
+// New ResetToken model
+model ResetToken {
+  id        String          @id @default(uuid())
+  userId    String
+  user      User            @relation(fields: [userId], references: [id])
+  email     String
+  token     String
+  type      ResetTokenType
+  expiresAt DateTime
+  createdAt DateTime        @default(now())
+  usedAt    DateTime?
+
+  @@index([token])
+  @@index([userId])
+  @@index([type])
+  @@index([expiresAt])
+}
+
+enum ResetTokenType {
+  VERIFICATION_CODE
+  RESET_LINK
+}
+
+model WaitingUser {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  fullName  String
+  email     String   @unique @db.VarChar(255)
+  company   String
+  role      String
+  message   String?
+  
+  @@index([email])
+  @@index([createdAt])
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  email     String   @unique @db.VarChar(255)
+  password  String
+  isActive  Boolean  @default(true)
+  
+  @@index([email])
+}
+
+model RefreshToken {
+  id              String    @id @default(uuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  token           String    @unique
+  expiresAt       DateTime
+  createdAt       DateTime  @default(now())
+  revokedAt       DateTime?
+  replacedByToken String?
+  ipAddress       String?
+  userAgent       String?
+}
+
+enum Role {
+  USER
+  ADMIN
+  CUSTOMER
+  INTEGRATION
+}
+
+model SecurityEvent {
+  id         String    @id @default(uuid())
+  timestamp  DateTime  @default(now())
+  source     String
+  type       String
+  severity   Int       @default(0)
+  rawData    Json
+  processed  Boolean   @default(false)
+  alert      Alert?    @relation(fields: [alertid], references: [id])
+  alertid    String?
+  customer   Customer? @relation(fields: [customerId], references: [id])
+  customerId String?
+
+  @@index([source, type])
+  @@index([timestamp])
+}
+
+model Alert {
+  id        String       @id @default(uuid())
+  createdAt DateTime     @default(now())
+  rule      DetectionRule @relation(fields: [ruleId], references: [id])
+  ruleId    String
+  events    SecurityEvent[]
+  incidents Incident[]
+  status    AlertStatus  @default(OPEN)
+  severity  Int
+
+  @@index([status])
+}
+
+enum AlertStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  SUPPRESSED
+}
+
+model Incident {
+  id          String           @id @default(uuid())
+  title       String
+  description String
+  status      IncidentStatus   @default(OPEN)
+  priority    Priority         @default(MEDIUM)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  alerts      Alert[]
+  playbooks   PlaybookExecution[]
+  comments    IncidentComment[]
+  customer    Customer?        @relation(fields: [customerId], references: [id])
+  customerId  String?
+  assigneeId  String?
+  assignee    User?            @relation(fields: [assigneeId], references: [id])
+
+  @@index([status, priority])
+}
+
+model Customer {
+  id           String           @id @default(uuid())
+  name         String
+  contactEmail String           @unique
+  tenantId     String           @unique
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  isActive     Boolean          @default(true)
+  users        User[]
+  incidents    Incident[]
+  events       SecurityEvent[]
+  contracts    Contract[]
+
+  @@index([tenantId])
+  @@index([contactEmail])
+  ReportConfiguration ReportConfiguration[]
+  DataSourceIntegration DataSourceIntegration[]
+}
+
+model IncidentComment {
+  id         String   @id @default(uuid())
+  content    String
+  isInternal Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  incident   Incident @relation(fields: [incidentId], references: [id])
+  incidentId String
+  author     User     @relation(fields: [authorId], references: [id])
+  authorId   String
+
+  @@index([incidentId])
+  @@index([authorId])
+}
+
+model PlaybookExecution {
+  id            String         @id @default(uuid())
+  name          String
+  status        PlaybookStatus @default(RUNNING)
+  startedAt     DateTime       @default(now())
+  endedAt       DateTime?
+  logs          Json
+  steps         Json           // Stores executed steps with timestamps
+  parameters    Json           // Input parameters used for execution
+  incident      Incident       @relation(fields: [incidentId], references: [id])
+  incidentId    String
+  initiatedBy   User?          @relation(fields: [initiatedById], references: [id])
+  initiatedById String?
+
+  @@index([incidentId])
+  @@index([status])
+  @@index([startedAt])
+}
+
+enum PlaybookStatus {
+  RUNNING
+  COMPLETED
+  FAILED
+  TERMINATED
+}
+
+// Additional supporting model for customer contracts
+model Contract {
+  id           String        @id @default(uuid())
+  customer     Customer      @relation(fields: [customerId], references: [id])
+  customerId   String
+  serviceLevel AgreementType
+  startDate    DateTime
+  endDate      DateTime
+  isActive     Boolean       @default(true)
+
+  @@index([customerId])
+}
+
+model DetectionRule {
+  id                 String               @id @default(uuid())
+  name               String               @unique
+  description        String
+  condition          Json                 // Rule logic in Sigma format or custom DSL
+  query              String?              // Actual query used (SQL, KQL, etc)
+  severity           DetectionRuleSeverity @default(MEDIUM)
+  status             DetectionRuleStatus  @default(DRAFT)
+  type               DetectionRuleType
+  source             DetectionRuleSource  @default(CUSTOM)
+  mitreTactics       String[]             // MITRE ATT&CK Tactics IDs
+  mitreTechniques    String[]             // MITRE ATT&CK Technique IDs
+  version            Int                  @default(1)
+  whocreated         String
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  createdById        String
+  updatedBy          User?                @relation(fields: [updatedById], references: [id])
+  updatedById        String?
+  interval           Int                  @default(3600) // Execution interval in seconds
+  lastExecuted       DateTime?
+  alerts             Alert[]
+  isActive           Boolean              @default(true)
+  falsePositives     String[]             // Common false positive scenarios
+  mitigation         String?              // Recommended mitigation steps
+  references         String[]             // Reference URLs
+  tags               String[]
+  platform           DetectionRulePlatform @default(CUSTOM)
+  autoGenerateIncident Boolean             @default(true)
+
+  @@index([severity])
+  @@index([status])
+  @@index([type])
+  @@index([source])
+  @@index([createdById])
+  @@index([isActive])
+  @@index([lastExecuted])
+}
+
+
+model DataSourceIntegration {
+  id              String   @id @default(uuid())
+  type            String   // CLOUD_STORAGE, AUTH_LOGS, DNS_LOGS, etc.
+  config          Json     // Connection configuration
+  pollingInterval Int?     // Polling interval in milliseconds
+  isActive        Boolean  @default(true)
+  customerId      String?
+  customer        Customer? @relation(fields: [customerId], references: [id])
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([userId])
+  @@index([customerId])
+}
+
+
+model ReportConfiguration {
+  id           String   @id @default(uuid())
+  frequency    String   // DAILY, WEEKLY, MONTHLY
+  recipients   String[] // JSON array of emails
+  reportTypes  String[] // JSON array of report types
+  customerId   String?
+  customer     Customer? @relation(fields: [customerId], references: [id])
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  isActive     Boolean  @default(true)
+  lastRunAt    DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum DetectionRuleSeverity {
+  INFO
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum DetectionRuleStatus {
+  DRAFT
+  ACTIVE
+  DISABLED
+  TESTING
+  DEPRECATED
+}
+
+enum DetectionRuleType {
+  THRESHOLD
+  ANOMALY
+  CORRELATION
+  STATIC
+  MACHINE_LEARNING
+  IOC
+  BEHAVIORAL
+}
+
+enum DetectionRuleSource {
+  CUSTOM
+  MITRE
+  VENDOR
+  COMMUNITY
+  GOVERNMENT
+}
+
+enum DetectionRulePlatform {
+  CUSTOM
+  AZURE
+  AWS
+  GCP
+  CROWDSTRIKE
+  SNORT
+  SURICATA
+  ELK
+  SPLUNK
+}
+
+enum AgreementType {
+  BASIC
+  ENTERPRISE
+  GOVERNMENT
+}
+
+enum IncidentStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum Roles {
+  CISO
+  SECURITY_ENGINEER
+  SOC_ANALYST
+  IT_MANAGER
+  OTHERS
+}

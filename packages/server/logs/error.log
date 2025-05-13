@@ -1,0 +1,495 @@
+2025-05-12 16:30:18:3018 [31merror[39m: [31mError initializing existing integrations: prisma is not defined[39m
+2025-05-12 16:30:39:3039 [31merror[39m: [31mError initializing existing integrations: prisma is not defined[39m
+2025-05-12 16:32:27:3227 [31merror[39m: [31mError initializing existing integrations: prisma is not defined[39m
+2025-05-12 16:32:49:3249 [31merror[39m: [31mError initializing existing integrations: prisma is not defined[39m
+2025-05-12 18:55:55:5555 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\services\integration.services.js:16:78[39m
+
+[31m  13 }[39m
+[31m  14 async initializeExistingIntegrations() {[39m
+[31m  15     try {[39m
+[31m→ 16         const existingIntegrations = await prisma?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 18:55:55:5555 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 18:55:55:5555 [31merror[39m: [31mFailed to initialize integration poller: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 18:55:55:5555 [31merror[39m: [31mUnhandled Rejection: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 19:55:06:556 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 19:55:31:5531 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 19:57:00:570 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 19:57:27:5727 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 19:57:55:5755 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 19:59:40:5940 [31merror[39m: [31mAPI Error: [[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "email"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  },[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "password"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  }[39m
+[31m][39m
+2025-05-12 19:59:43:5943 [31merror[39m: [31mAPI Error: [[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "email"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  },[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "password"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  }[39m
+[31m][39m
+2025-05-12 20:00:13:013 [31merror[39m: [31mAPI Error: [[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "email"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  },[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "password"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  }[39m
+[31m][39m
+2025-05-12 20:03:40:340 [31merror[39m: [31mAPI Error: [[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "email"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  },[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "password"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  }[39m
+[31m][39m
+2025-05-12 20:03:43:343 [31merror[39m: [31mAPI Error: [[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "email"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  },[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "password"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  }[39m
+[31m][39m
+2025-05-12 20:06:15:615 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:22:09:229 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\services\integration.services.js:16:78[39m
+
+[31m  13 }[39m
+[31m  14 async initializeExistingIntegrations() {[39m
+[31m  15     try {[39m
+[31m→ 16         const existingIntegrations = await prisma?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 20:22:09:229 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 20:22:09:229 [31merror[39m: [31mFailed to initialize integration poller: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 20:22:09:229 [31merror[39m: [31mUnhandled Rejection: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 20:25:58:2558 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:27:42:2742 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:29:11:2911 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:29:12:2912 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:29:15:2915 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:29:16:2916 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:29:16:2916 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:29:16:2916 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:29:17:2917 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:29:17:2917 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:29:17:2917 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:29:18:2918 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:31:00:310 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:33:07:337 [31merror[39m: [31mAPI Error: [[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "email"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  },[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "string",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "password"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  }[39m
+[31m][39m
+2025-05-12 20:36:03:363 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:36:04:364 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-12 20:37:48:3748 [31merror[39m: [31mAPI Error: Invalid credentials[39m
+2025-05-12 20:38:46:3846 [31merror[39m: [31mAPI Error: Invalid credentials[39m
+2025-05-12 20:39:32:3932 [31merror[39m: [31mAPI Error: Invalid credentials[39m
+2025-05-12 20:40:41:4041 [31merror[39m: [31mAPI Error: Invalid credentials[39m
+2025-05-12 20:44:00:440 [31merror[39m: [31mAPI Error: Invalid credentials[39m
+2025-05-12 20:45:47:4547 [31merror[39m: [31mAPI Error: Invalid credentials[39m
+2025-05-12 20:47:14:4714 [31merror[39m: [31mAPI Error: Invalid credentials[39m
+2025-05-12 20:47:36:4736 [31merror[39m: [31mAPI Error: Invalid credentials[39m
+2025-05-12 20:49:39:4939 [31merror[39m: [31mAPI Error: Invalid credentials[39m
+2025-05-12 20:50:02:502 [31merror[39m: [31mAPI Error: Invalid credentials[39m
+2025-05-12 21:06:02:62 [31merror[39m: [31mAPI Error: User already exists[39m
+2025-05-12 21:09:57:957 [31merror[39m: [31mAPI Error: Email not verified[39m
+2025-05-12 21:10:09:109 [31merror[39m: [31mAPI Error: Email not verified[39m
+2025-05-12 21:13:30:1330 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:13:30:1330 [31merror[39m: [31mFailed to initialize integration poller: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:13:30:1330 [31merror[39m: [31mUnhandled Rejection: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:17:35:1735 [31merror[39m: [31mUnhandled Error: "expiresIn" should be a number of seconds or string representing a timespan[39m
+2025-05-12 21:32:21:3221 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\services\integration.services.js:16:78[39m
+
+[31m  13 }[39m
+[31m  14 async initializeExistingIntegrations() {[39m
+[31m  15     try {[39m
+[31m→ 16         const existingIntegrations = await prisma?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:32:21:3221 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:32:21:3221 [31merror[39m: [31mFailed to initialize integration poller: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:32:21:3221 [31merror[39m: [31mUnhandled Rejection: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:36:34:3634 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:36:34:3634 [31merror[39m: [31mFailed to initialize integration poller: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:36:34:3634 [31merror[39m: [31mUnhandled Rejection: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:37:45:3745 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\services\integration.services.js:16:78[39m
+
+[31m  13 }[39m
+[31m  14 async initializeExistingIntegrations() {[39m
+[31m  15     try {[39m
+[31m→ 16         const existingIntegrations = await prisma?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:37:45:3745 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:37:45:3745 [31merror[39m: [31mFailed to initialize integration poller: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:37:45:3745 [31merror[39m: [31mUnhandled Rejection: [39m
+[31mInvalid `prisma_client_1.default?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\worker\integration.poller.js:28:87[39m
+
+[31m  25 }[39m
+[31m  26 async initializeExistingIntegrations() {[39m
+[31m  27     try {[39m
+[31m→ 28         const integrations = await prisma_client_1.default?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-12 21:53:28:5328 [31merror[39m: [31mUnhandled Error: [39m
+[31mInvalid `prisma_client_1.default.user.findUnique()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\services\auth.services.js:41:57[39m
+
+[31m  38     return userWithoutPassword;[39m
+[31m  39 },[39m
+[31m  40 async login(email, password) {[39m
+[31m→ 41     const user = await prisma_client_1.default.user.findUnique([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-13 09:35:18:3518 [31merror[39m: [31mError in report generation job: [39m
+[31mInvalid `prisma_client_1.default.reportConfiguration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\services\report.service.js:24:85[39m
+
+[31m  21 });[39m
+[31m  22 async generateAndSendReports() {[39m
+[31m  23     try {[39m
+[31m→ 24         const reportConfigs = await prisma_client_1.default.reportConfiguration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
+2025-05-13 13:17:15:1715 [31merror[39m: [31mAPI Error: Authentication token missing[39m
+2025-05-13 13:25:09:259 [31merror[39m: [31mAPI Error: [[39m
+[31m  {[39m
+[31m    "expected": "'CLOUD_STORAGE' | 'AUTH_LOGS' | 'DNS_LOGS' | 'ENDPOINT_LOGS'",[39m
+[31m    "received": "undefined",[39m
+[31m    "code": "invalid_type",[39m
+[31m    "path": [[39m
+[31m      "type"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  },[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "object",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "credentials"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  }[39m
+[31m][39m
+2025-05-13 13:27:12:2712 [31merror[39m: [31mAPI Error: [[39m
+[31m  {[39m
+[31m    "expected": "'CLOUD_STORAGE' | 'AUTH_LOGS' | 'DNS_LOGS' | 'ENDPOINT_LOGS'",[39m
+[31m    "received": "undefined",[39m
+[31m    "code": "invalid_type",[39m
+[31m    "path": [[39m
+[31m      "type"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  },[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "object",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "credentials"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  }[39m
+[31m][39m
+2025-05-13 13:27:44:2744 [31merror[39m: [31mAPI Error: [[39m
+[31m  {[39m
+[31m    "expected": "'CLOUD_STORAGE' | 'AUTH_LOGS' | 'DNS_LOGS' | 'ENDPOINT_LOGS'",[39m
+[31m    "received": "undefined",[39m
+[31m    "code": "invalid_type",[39m
+[31m    "path": [[39m
+[31m      "type"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  },[39m
+[31m  {[39m
+[31m    "code": "invalid_type",[39m
+[31m    "expected": "object",[39m
+[31m    "received": "undefined",[39m
+[31m    "path": [[39m
+[31m      "credentials"[39m
+[31m    ],[39m
+[31m    "message": "Required"[39m
+[31m  }[39m
+[31m][39m
+2025-05-13 16:49:11:4911 [31merror[39m: [31mError initializing existing integrations: [39m
+[31mInvalid `prisma?.dataSourceIntegration.findMany()` invocation in[39m
+[31mC:\Users\HP\Desktop\y-presentation\server\dist\services\integration.services.js:74:78[39m
+
+[31m  71 }[39m
+[31m  72 async initializeExistingIntegrations() {[39m
+[31m  73     try {[39m
+[31m→ 74         const existingIntegrations = await prisma?.dataSourceIntegration.findMany([39m
+[31mCan't reach database server at `eu-central-1.sql.xata.sh:5432`[39m
+
+[31mPlease make sure your database server is running at `eu-central-1.sql.xata.sh:5432`.[39m
